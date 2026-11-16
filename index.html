@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Renewal Desk | Compliance Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+    </div>
+    <span class="brand-name">Renewal Desk</span>
+  </div>
+  <div class="restaurant">
+    <span class="restaurant-name">Harbor &amp; Pine Kitchen</span>
+    <span class="badge-sample">Sample data</span>
+  </div>
+</header>
+
+<main class="page">
+
+  <div class="title-row">
+    <div>
+      <h1>Compliance overview</h1>
+      <p class="subtitle">Every permit, certification, policy and inspection in one place. Demo date: <span id="demo-date"></span>.</p>
+    </div>
+    <button type="button" id="reset" class="btn btn-neutral">Reset demo</button>
+  </div>
+
+  <section class="stats" aria-label="Status summary">
+    <div class="stat stat--expired">
+      <div class="stat-label">Expired</div>
+      <div class="stat-num" id="n-expired">0</div>
+      <div class="stat-note">Needs action today</div>
+    </div>
+    <div class="stat stat--soon30">
+      <div class="stat-label">Due within 30 days</div>
+      <div class="stat-num" id="n-soon30">0</div>
+      <div class="stat-note">Start renewals now</div>
+    </div>
+    <div class="stat stat--soon60">
+      <div class="stat-label">Due in 31 to 60 days</div>
+      <div class="stat-num" id="n-soon60">0</div>
+      <div class="stat-note">Coming up soon</div>
+    </div>
+    <div class="stat stat--ok">
+      <div class="stat-label">On track</div>
+      <div class="stat-num" id="n-ok">0</div>
+      <div class="stat-note">More than 60 days out</div>
+    </div>
+  </section>
+
+  <div class="two-col">
+    <section class="card card--attention" aria-labelledby="attn-h">
+      <div class="card-head">
+        <h2 id="attn-h">Needs attention</h2>
+        <span class="muted small">Expired or due within 30 days</span>
+      </div>
+      <div id="attention" class="attention-list"></div>
+    </section>
+
+    <section class="card card--categories" aria-labelledby="cat-h">
+      <h2 id="cat-h">By category</h2>
+      <p class="muted small">Items on track (more than 60 days out)</p>
+      <div id="categories" class="category-list"></div>
+    </section>
+  </div>
+
+  <section class="card" aria-labelledby="all-h">
+    <div class="card-head card-head--wide">
+      <h2 id="all-h">All tracked items</h2>
+      <div id="tabs" class="tabs" role="group" aria-label="Filter by category"></div>
+    </div>
+    <div class="table-scroll">
+      <div class="table">
+        <div class="tr tr--head">
+          <div>Item</div>
+          <div>Category</div>
+          <div>Responsible</div>
+          <div>Date</div>
+          <div>Days</div>
+          <div>Status</div>
+        </div>
+        <div id="rows"></div>
+      </div>
+    </div>
+  </section>
+
+  <p class="footnote">All names, vendors and dates shown are sample data for demonstration. Renewal requirements differ by city, county and state, so confirm exact requirements and deadlines with your local health department and licensing agencies.</p>
+
+</main>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
